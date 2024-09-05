@@ -12,7 +12,7 @@ const Header = () => {
             width={38}
             height={38}
           />
-          <p className="h2-bold ml-1">Event Radar</p>
+          <p className="h5-bold ml-1">Event Radar</p>
         </Link>
 
         <div className="flex w-32 justify-end gap-3"></div>
