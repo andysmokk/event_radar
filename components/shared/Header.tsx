@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "../ui/button";
+import NavItems from "./NavItems";
 
 const Header = () => {
   return (
@@ -18,9 +19,16 @@ const Header = () => {
           <p className="h5-bold ml-1">Event Radar</p>
         </Link>
 
+        <SignedIn>
+          <nav className="md:flex-between hidden w-full max-w-xs">
+            <NavItems />
+          </nav>
+        </SignedIn>
+
         <div className="flex w-32 justify-end gap-3">
           <SignedIn>
             <UserButton />
+            <NavItems />
           </SignedIn>
           <SignedOut>
             <Button asChild className="rounded-full" size="lg">
