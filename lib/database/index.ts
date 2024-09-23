@@ -12,7 +12,7 @@ export const connectToDatabase = async () => {
   cached.promise =
     cached.promise ||
     mongoose.connect(MONGODB_URI, {
-      dbName: "Event Radar",
+      dbName: "event_radar",
       bufferCommands: false,
     });
 
