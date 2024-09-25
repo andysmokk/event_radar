@@ -56,14 +56,9 @@ export async function POST(req: Request) {
   const { id } = evt.data;
   const eventType = evt.type;
 
-  console.log(`Webhook with and ID of ${id} and type of ${eventType}`);
-  console.log("Webhook body:", body);
-
   if (eventType === "user.created") {
     const { id, email_addresses, image_url, first_name, last_name, username } =
       evt.data;
-
-    console.log("userId:", evt.data.id);
 
     const user = {
       clerkId: id,
@@ -73,10 +68,8 @@ export async function POST(req: Request) {
       lastName: last_name!,
       photo: image_url,
     };
-    console.log("🚀 ~ POST ~ user:", user);
 
     const newUser = await createUser(user);
-    console.log("🚀 ~ POST ~ newUser:", newUser);
 
     if (newUser) {
       await clerkClient.users.updateUserMetadata(id, {
