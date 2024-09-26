@@ -16,6 +16,11 @@ export type UpdateUserParams = {
 };
 
 // ====== EVENT PARAMS
+export type EventFormProps = {
+  userId: string;
+  type: "Create" | "Update";
+};
+
 export type CreateEventParams = {
   userId: string;
   event: {
