@@ -5,6 +5,8 @@ import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 import { EventFormProps } from "@/types";
 import { Button } from "@/components/ui/button";
@@ -26,6 +28,7 @@ import { FileUploader } from "./FileUploader";
 
 const EventForm = ({ userId, type }: EventFormProps) => {
   const [files, setFiles] = useState<File[]>([]);
+  // const [startDate, setStartDate] = useState(new Date());
 
   const initialValues = eventDefaultValues;
 
@@ -170,6 +173,13 @@ const EventForm = ({ userId, type }: EventFormProps) => {
                     <p className="ml-3 whitespace-nowrap text-grey-600">
                       Start Date:
                     </p>
+
+                    <DatePicker
+                      selected={field.value}
+                      onChange={(date: Date | null) => field.onChange(date)}
+                      showTimeSelect
+                      timeInputLabel="Time:"
+                    />
                   </div>
                 </FormControl>
                 <FormMessage />
