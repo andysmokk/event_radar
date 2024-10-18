@@ -29,7 +29,8 @@ const EventDetails = async ({
             alt="hero image"
             width={100}
             height={100}
-            className="w-full min-h-[300px] object-cover object-center"
+            sizes="(max-width: 250px) 100vw"
+            className="w-full object-cover object-center"
           />
 
           <div className="flex w-full flex-col gap-8 p-5 md:p-10">
