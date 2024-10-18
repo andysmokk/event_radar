@@ -76,8 +76,6 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
           form.reset();
           router.push(`/events/${newEvent._id}`);
         }
-
-        console.log("🚀 ~ onSubmit ~ newEvent:", newEvent);
       } catch (error) {
         console.log(error);
       }
@@ -95,7 +93,6 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
           event: { ...values, imageUrl: uploadedImageUrl, _id: eventId },
           path: "/events/${eventId}",
         });
-        console.log("🚀 ~ onSubmit ~ updatedEvent:", updatedEvent);
 
         if (updatedEvent) {
           form.reset();

@@ -40,7 +40,7 @@ const EventDetails = async ({
                 <div className="flex gap-3">
                   <p
                     className="p-bold-20 rounded-full bg-green-500/10 px-5 py-2
-                 text-green-700"
+                 text-green-700 flex items-center"
                   >
                     {event.isFree ? "FREE" : `$${event.price}`}
                   </p>
