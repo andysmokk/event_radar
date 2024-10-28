@@ -47,7 +47,7 @@ const EventDetails = async ({
                     {event.isFree ? "FREE" : `$${event.price}`}
                   </p>
                   <p
-                    className="p-medium-16 rounded-full bg-green-500/10 px-4 py-2.5
+                    className="flex items-center p-medium-16 rounded-full bg-green-500/10 px-4 py-2.5
                  text-grey-500"
                   >
                     {event.category.name}
@@ -63,7 +63,7 @@ const EventDetails = async ({
               </div>
             </div>
 
-            <CheckoutButton event={ event} />
+            <CheckoutButton event={event} />
 
             <div className="flex flex-col gap-5">
               <div className="flex gap-2 md:gap-3">
