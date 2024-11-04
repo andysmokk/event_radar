@@ -3,7 +3,7 @@
 import Stripe from "stripe";
 import { redirect } from "next/navigation";
 
-import { CheckoutOrderParams } from "@/types";
+import { CheckoutOrderParams, CreateOrderParams } from "@/types";
 
 export const checkoutOrder = async (order: CheckoutOrderParams) => {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
@@ -38,3 +38,5 @@ export const checkoutOrder = async (order: CheckoutOrderParams) => {
     throw error;
   }
 };
+
+export const createOrder = async (order: CreateOrderParams) => {};
