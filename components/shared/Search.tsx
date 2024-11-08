@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { Input } from "../ui/input";
+import { formUrlQuery, removeKeysFromQuery } from "@/lib/utils";
 
 const Search = ({
   placeholder = "Search title...",
@@ -11,6 +13,32 @@ const Search = ({
   placeholder?: string;
 }) => {
   const [query, setQuery] = useState("");
+
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  useEffect(() => {
+    let newUrl = "";
+
+    const delayDebounceFn = setTimeout(() => {
+      if (query) {
+        newUrl = formUrlQuery({
+          params: searchParams.toString(),
+          key: "query",
+          value: query,
+        });
+      } else {
+        newUrl = removeKeysFromQuery({
+          params: searchParams.toString(),
+          keysToRemove: ["query"],
+        });
+      }
+
+      router.push(newUrl, { scroll: false });
+    }, 300);
+
+    return () => clearTimeout(delayDebounceFn);
+  }, [query, searchParams, router]);
 
   return (
     <div
