@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import { useRouter, useSearchParams } from "next/navigation";
 
 type PaginationProps = {
   urlParamName?: string;
@@ -7,6 +9,9 @@ type PaginationProps = {
 };
 
 const Pagination = ({ urlParamName, page, totalPages }: PaginationProps) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   return <div>Pagination</div>;
 };
 
