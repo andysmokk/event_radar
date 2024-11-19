@@ -17,7 +17,25 @@ const Pagination = ({ urlParamName, page, totalPages }: PaginationProps) => {
 
   return (
     <div className="flex gap-2">
-      <Button>Previous</Button>
+      <Button
+        size="lg"
+        variant="outline"
+        className="w-28"
+        onClick={() => onClick("prev")}
+        disabled={Number(page) <= 1}
+      >
+        Previous
+      </Button>
+
+      <Button
+        size="lg"
+        variant="outline"
+        className="w-28"
+        onClick={() => onClick("next")}
+        disabled={Number(page) >= totalPages}
+      >
+        Next
+      </Button>
     </div>
   );
 };
